@@ -10,13 +10,19 @@ export default function Layout(props) {
     setTimeout(() => loading.setIsLoading(false), 1000);
   }, loading.isLoading);
 
+  return loading.isLoading ? "Loading..." : <Content {...props} />;
+}
+
+Layout.propTypes = {
+  title: PropTypes.string
+};
+
+function Content(props) {
   const { children } = props;
   const subTitle = props.title ? props.title : "";
   const siteTitle = "Example Test App";
 
-  return loading.isLoading ? (
-    "Loading..."
-  ) : (
+  return (
     <>
       <Head>
         <title>{subTitle ? `${subTitle} - ${siteTitle}` : siteTitle}</title>
@@ -28,7 +34,3 @@ export default function Layout(props) {
     </>
   );
 }
-
-Layout.propTypes = {
-  title: PropTypes.string
-};
