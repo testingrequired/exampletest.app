@@ -2,7 +2,7 @@ import Layout from "../components/layout";
 
 export default function Index() {
   return (
-    <Layout>
+    <Layout title="Home">
       <p>Index</p>
     </Layout>
   );

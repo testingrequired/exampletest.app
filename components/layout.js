@@ -7,12 +7,18 @@ import { LoadingContext } from "../contexts/loadingContext";
  * Main site layout
  * @param {object} props
  */
-export default function Layout({ title, loadingDelay = 1000 }) {
+export default function Layout({ children, title, loadingDelay = 1000 }) {
   const { setIsLoading, isLoading } = useContext(LoadingContext);
 
-  useEffect(() => setTimeout(() => setIsLoading(false), loadingDelay), []);
+  useEffect(() => {
+    setTimeout(() => setIsLoading(false), loadingDelay);
+  }, []);
 
-  return isLoading ? "Loading..." : <Content title={title} />;
+  return isLoading ? (
+    "Loading..."
+  ) : (
+    <Content title={title} children={children} />
+  );
 }
 
 Layout.propTypes = {
