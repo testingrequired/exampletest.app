@@ -14,10 +14,8 @@ export default function Layout({ children, title, loadingDelay = 1000 }) {
     setTimeout(() => setIsLoading(false), loadingDelay);
   }, []);
 
-  return isLoading ? (
-    "Loading..."
-  ) : (
-    <Content title={title} children={children} />
+  return (
+    (isLoading && "Loading...") || <Content title={title} children={children} />
   );
 }
 
