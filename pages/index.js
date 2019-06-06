@@ -1,3 +1,9 @@
+import Layout from "../components/layout";
+
 export default function index() {
-  return <p>Index</p>;
+  return (
+    <Layout>
+      <p>Index</p>
+    </Layout>
+  );
 }
