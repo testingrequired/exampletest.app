@@ -7,7 +7,6 @@ export default function Layout(props) {
   const loading = useContext(LoadingContext);
 
   useEffect(() => {
-    loading.setIsLoading(true);
     setTimeout(() => loading.setIsLoading(false), 1000);
   }, loading.isLoading);
 
