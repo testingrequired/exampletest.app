@@ -34,3 +34,7 @@ function Content(props) {
     </>
   );
 }
+
+Content.propTypes = {
+  title: PropTypes.string
+};
