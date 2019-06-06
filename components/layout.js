@@ -3,24 +3,26 @@ import Head from "next/head";
 import PropTypes from "prop-types";
 import { LoadingContext } from "../contexts/loadingContext";
 
-export default function Layout(props) {
-  const loading = useContext(LoadingContext);
+/**
+ * Main site layout
+ * @param {object} props
+ */
+export default function Layout({ title, loadingDelay = 1000 }) {
+  const { setIsLoading, isLoading } = useContext(LoadingContext);
 
-  useEffect(() => {
-    setTimeout(() => loading.setIsLoading(false), 1000);
-  }, loading.isLoading);
+  useEffect(() => setTimeout(() => setIsLoading(false), loadingDelay), []);
 
-  return loading.isLoading ? "Loading..." : <Content {...props} />;
+  return isLoading ? "Loading..." : <Content title={title} />;
 }
 
 Layout.propTypes = {
-  title: PropTypes.string
+  title: PropTypes.string,
+  loadingDelay: PropTypes.number
 };
 
-function Content(props) {
-  const { children } = props;
-  const subTitle = props.title ? props.title : "";
+function Content({ children, title }) {
   const siteTitle = "Example Test App";
+  const subTitle = title ? title : "";
 
   return (
     <>
@@ -28,7 +30,7 @@ function Content(props) {
         <title>{subTitle ? `${subTitle} - ${siteTitle}` : siteTitle}</title>
       </Head>
 
-      <h1>Title</h1>
+      <h1>{siteTitle}</h1>
 
       {children}
     </>
