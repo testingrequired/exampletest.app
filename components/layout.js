@@ -24,6 +24,7 @@ export default function Layout({ children, title }) {
   const { loadingDelay } = useContext(ConfigContext);
 
   useEffect(() => {
+    setTimeout(() => setIsLoading(true));
     setTimeout(() => setIsLoading(false), loadingDelay);
   }, []);
 
