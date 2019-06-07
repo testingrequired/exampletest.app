@@ -11,16 +11,20 @@ export default function Config(props) {
       <h2>Config</h2>
 
       <table className={styles.table}>
-        <tr>
-          <th>Key</th>
-          <th>Value</th>
-        </tr>
-        {Object.entries(config).map(([key, value]) => (
-          <tr key={key}>
-            <td>{key}</td>
-            <td>{value}</td>
+        <thead>
+          <tr>
+            <th>Key</th>
+            <th>Value</th>
           </tr>
-        ))}
+        </thead>
+        <tbody>
+          {Object.entries(config).map(([key, value]) => (
+            <tr key={key}>
+              <td>{key}</td>
+              <td>{value}</td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </Layout>
   );
