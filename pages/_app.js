@@ -1,6 +1,7 @@
 import React from "react";
 import App, { Container } from "next/app";
 import { LoadingProvider } from "../contexts/loadingContext";
+import { ConfigProvider } from "../contexts/configContext";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -18,9 +19,11 @@ class MyApp extends App {
 
     return (
       <Container>
-        <LoadingProvider>
-          <Component {...pageProps} />
-        </LoadingProvider>
+        <ConfigProvider>
+          <LoadingProvider>
+            <Component {...pageProps} />
+          </LoadingProvider>
+        </ConfigProvider>
       </Container>
     );
   }

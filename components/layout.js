@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import Head from "next/head";
 import PropTypes from "prop-types";
 import { LoadingContext } from "../contexts/loadingContext";
+import { ConfigContext } from "../contexts/configContext";
 
 const styles = {
   main: {
@@ -19,7 +20,8 @@ const styles = {
  * @param {object} props
  */
 export default function Layout({ children, title }) {
-  const { setIsLoading, isLoading, loadingDelay } = useContext(LoadingContext);
+  const { setIsLoading, isLoading } = useContext(LoadingContext);
+  const { loadingDelay } = useContext(ConfigContext);
 
   useEffect(() => {
     setTimeout(() => setIsLoading(false), loadingDelay);
