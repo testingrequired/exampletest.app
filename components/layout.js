@@ -3,17 +3,7 @@ import Head from "next/head";
 import PropTypes from "prop-types";
 import { LoadingContext } from "../contexts/loadingContext";
 import { ConfigContext } from "../contexts/configContext";
-
-const styles = {
-  main: {
-    width: "90vw",
-    margin: "0 auto",
-    fontFamily: "sans-serif"
-  },
-  header: {
-    marginBottom: "2em"
-  }
-};
+import styles from "./layout.css";
 
 /**
  * Main site layout
@@ -29,7 +19,7 @@ export default function Layout({ children, title }) {
   }, []);
 
   return (
-    <main style={styles.main}>
+    <main className={styles.main}>
       {(isLoading && "Loading...") || (
         <Content title={title} children={children} />
       )}
@@ -51,7 +41,7 @@ function Content({ children, title }) {
         <title>{subTitle ? `${subTitle} - ${siteTitle}` : siteTitle}</title>
       </Head>
 
-      <h1 style={styles.header}>{siteTitle}</h1>
+      <h1 className={styles.header}>{siteTitle}</h1>
 
       {children}
     </>
