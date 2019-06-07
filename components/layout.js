@@ -12,11 +12,11 @@ import Loader from "./loader";
  */
 export default function Layout({ children, title }) {
   const { setIsLoading, isLoading } = useContext(LoadingContext);
-  const { loadingDelay } = useContext(ConfigContext);
+  const { config } = useContext(ConfigContext);
 
   useEffect(() => {
     setTimeout(() => setIsLoading(true));
-    setTimeout(() => setIsLoading(false), loadingDelay);
+    setTimeout(() => setIsLoading(false), config.loadingDelay);
   }, []);
 
   return (
