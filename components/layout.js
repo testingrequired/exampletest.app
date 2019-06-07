@@ -18,7 +18,7 @@ const styles = {
  * Main site layout
  * @param {object} props
  */
-export default function Layout({ children, title, loadingDelay = 1000 }) {
+export default function Layout({ children, title, loadingDelay = 250 }) {
   const { setIsLoading, isLoading } = useContext(LoadingContext);
 
   useEffect(() => {
