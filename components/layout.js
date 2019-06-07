@@ -18,8 +18,8 @@ const styles = {
  * Main site layout
  * @param {object} props
  */
-export default function Layout({ children, title, loadingDelay = 250 }) {
-  const { setIsLoading, isLoading } = useContext(LoadingContext);
+export default function Layout({ children, title }) {
+  const { setIsLoading, isLoading, loadingDelay } = useContext(LoadingContext);
 
   useEffect(() => {
     setTimeout(() => setIsLoading(false), loadingDelay);
@@ -35,8 +35,7 @@ export default function Layout({ children, title, loadingDelay = 250 }) {
 }
 
 Layout.propTypes = {
-  title: PropTypes.string,
-  loadingDelay: PropTypes.number
+  title: PropTypes.string
 };
 
 function Content({ children, title }) {
