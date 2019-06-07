@@ -6,6 +6,5 @@ export default function Conditional(props) {
 
 Conditional.propTypes = {
   when: PropTypes.bool,
-  children: PropTypes.oneOf([PropTypes.string, PropTypes.element]),
   else: PropTypes.element
 };
