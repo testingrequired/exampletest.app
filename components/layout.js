@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import Head from "next/head";
+import Link from "next/link";
 import PropTypes from "prop-types";
 import { LoadingContext } from "../contexts/loadingContext";
 import { ConfigContext } from "../contexts/configContext";
@@ -42,7 +43,9 @@ function Content({ children, title }) {
         <title>{subTitle ? `${subTitle} - ${siteTitle}` : siteTitle}</title>
       </Head>
 
-      <h1 className={styles.header}>{siteTitle}</h1>
+      <Link href="/">
+        <h1 className={styles.header}>{siteTitle}</h1>
+      </Link>
 
       {children}
     </>
