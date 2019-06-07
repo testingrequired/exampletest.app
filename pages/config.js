@@ -3,7 +3,7 @@ import { ConfigContext } from "../contexts/configContext";
 import Layout from "../components/layout";
 import styles from "./config.css";
 
-export default function Config(props) {
+export default function Config() {
   const { config } = useContext(ConfigContext);
 
   return (
@@ -17,15 +17,17 @@ export default function Config(props) {
             <th>Value</th>
           </tr>
         </thead>
-        <tbody>
-          {Object.entries(config).map(([key, value]) => (
-            <tr key={key}>
-              <td>{key}</td>
-              <td>{value}</td>
-            </tr>
-          ))}
-        </tbody>
+        <tbody>{Object.entries(config).map(mapConfigRow)}</tbody>
       </table>
     </Layout>
+  );
+}
+
+function mapConfigRow([key, value]) {
+  return (
+    <tr key={key}>
+      <td>{key}</td>
+      <td>{value}</td>
+    </tr>
   );
 }
