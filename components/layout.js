@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { LoadingContext } from "../contexts/loadingContext";
 import { ConfigContext } from "../contexts/configContext";
 import styles from "./layout.css";
+import Loader from "./loader";
 
 /**
  * Main site layout
@@ -20,9 +21,9 @@ export default function Layout({ children, title }) {
 
   return (
     <main className={styles.main}>
-      {(isLoading && "Loading...") || (
+      <Loader>
         <Content title={title} children={children} />
-      )}
+      </Loader>
     </main>
   );
 }
