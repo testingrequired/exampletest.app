@@ -6,6 +6,14 @@ A web app designed to be a target for test automation scripts.
 
 https://exampletest.app/
 
+## The App
+
+The web app is a mock social media site called Lemon. This will present a variety of testing scenarios around test data and automation. The app will have several configurable settings providing different environmental challenges.
+
+The goal of the app is to teach test automation at different difficulty levels while encouraging best practices.
+
+The develop of the app is on going.
+
 ## Development
 
 Run the development server.
