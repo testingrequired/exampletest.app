@@ -22,6 +22,7 @@ export default function Layout({ children, title }) {
             type="image/png"
             href="/static/favicon.ico"
           />
+          <link rel="stylesheet" href="/static/style.css" />
         </Head>
 
         <Link href="/">
