@@ -47,6 +47,10 @@ function Content({ children, title }) {
         <h1 className={styles.header}>{siteTitle}</h1>
       </Link>
 
+      <nav className={styles.nav}>
+        <Link href="/config">Config</Link>
+      </nav>
+
       {children}
     </>
   );

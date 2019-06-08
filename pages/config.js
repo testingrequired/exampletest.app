@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { ConfigContext } from "../contexts/configContext";
 import Layout from "../components/layout";
 import styles from "./config.css";
+import EditConfigValueForm from "../components/editConfigValueForm";
 
 export default function Config() {
   const { config } = useContext(ConfigContext);
@@ -9,6 +10,12 @@ export default function Config() {
   return (
     <Layout>
       <h2>Config</h2>
+
+      <hr />
+
+      <EditConfigValueForm />
+
+      <hr />
 
       <table className={styles.table}>
         <thead>

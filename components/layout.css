@@ -4,10 +4,10 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.header {
-  margin-bottom: 2em;
-}
-
 .header:hover {
   cursor: pointer;
+}
+
+.nav {
+  margin-bottom: 2em;
 }
