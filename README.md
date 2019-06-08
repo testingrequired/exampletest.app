@@ -14,6 +14,10 @@ The goal of the app is to teach test automation at different difficulty levels w
 
 The develop of the app is on going.
 
+### Refresh
+
+Refreshing the page resets the app to its default state.
+
 ### Admin
 
 https://exampletest.app/_
