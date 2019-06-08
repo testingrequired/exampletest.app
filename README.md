@@ -14,6 +14,10 @@ The goal of the app is to teach test automation at different difficulty levels w
 
 The develop of the app is on going.
 
+### Logging In
+
+Login with `testUser` and `password`.
+
 ### Refresh
 
 Refreshing the page resets the app to its default state.
