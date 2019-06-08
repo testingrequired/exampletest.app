@@ -15,16 +15,7 @@ import LoginForm from "../components/loginForm";
  * @param {object} props
  */
 export default function Layout({ children, title }) {
-  const { setIsLoading } = useContext(LoadingContext);
-  const { config } = useContext(ConfigContext);
   const auth = useContext(AuthContext);
-
-  useEffect(() => {
-    const { loadingJitter: jitter, loadingDelay: delay } = config;
-    const loadingDelay = jitter ? Math.random() * (delay - 0) + 0 : delay;
-    setTimeout(() => setIsLoading(true));
-    setTimeout(() => setIsLoading(false), loadingDelay);
-  }, []);
 
   const subTitle = title ? title : "";
 
