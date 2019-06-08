@@ -54,15 +54,9 @@ export default function EditConfigValueForm() {
 }
 
 function EditConfigValueInput({ value, onChange }) {
-  return (
-    <input
-      type={typeMatcher(value, {
-        string: () => "text",
-        number: () => "text",
-        boolean: () => "checkbox"
-      })}
-      value={value}
-      onChange={onChange}
-    />
-  );
+  return typeMatcher(value, {
+    string: () => <input type="type" value={value} onChange={onChange} />,
+    number: () => <input type="number" value={value} onChange={onChange} />,
+    boolean: () => <input type="checkbox" checked={value} onChange={onChange} />
+  });
 }

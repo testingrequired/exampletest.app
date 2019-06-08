@@ -34,7 +34,7 @@ function mapConfigRow([key, value]) {
   return (
     <tr key={key}>
       <td>{key}</td>
-      <td>{value}</td>
+      <td>{JSON.stringify(value)}</td>
     </tr>
   );
 }
