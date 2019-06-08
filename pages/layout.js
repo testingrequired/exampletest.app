@@ -13,33 +13,31 @@ export default function Layout({ children, title }) {
   const subTitle = title ? title : "";
 
   return (
-    <main className={styles.main}>
+    <>
+      <Head>
+        <title>{subTitle ? `Lemon - ${subTitle}` : "Lemon"}</title>
+        <link rel="shortcut icon" type="image/png" href="/static/favicon.ico" />
+        <link rel="stylesheet" href="/static/style.css" />
+      </Head>
+
       <Loader>
-        <Head>
-          <title>{subTitle ? `Lemon - ${subTitle}` : "Lemon"}</title>
-          <link
-            rel="shortcut icon"
-            type="image/png"
-            href="/static/favicon.ico"
-          />
-          <link rel="stylesheet" href="/static/style.css" />
-        </Head>
+        <main className={styles.main}>
+          <Link href="/">
+            <h1 className={styles.header}>🍋 Lemon</h1>
+          </Link>
 
-        <Link href="/">
-          <h1 className={styles.header}>🍋 Lemon</h1>
-        </Link>
+          <Protected>
+            <nav className={styles.nav}>
+              <Link href="/_">Admin</Link>
+            </nav>
 
-        <Protected>
-          <nav className={styles.nav}>
-            <Link href="/_">Admin</Link>
-          </nav>
+            <hr />
 
-          <hr />
-
-          {children}
-        </Protected>
+            {children}
+          </Protected>
+        </main>
       </Loader>
-    </main>
+    </>
   );
 }
 
