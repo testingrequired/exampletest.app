@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import Link from "next/link";
-import Layout from "../../components/layout";
+import Layout from "../layout";
 
 export default function AdminLayout({ children, title }) {
   return (

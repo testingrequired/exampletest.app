@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { LoadingContext } from "../contexts/loadingContext";
 import { ConfigContext } from "../contexts/configContext";
 import styles from "./layout.css";
-import Loader from "./loader";
+import Loader from "../components/loader";
 
 /**
  * Main site layout
