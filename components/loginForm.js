@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { AuthContext } from "../contexts/authContext";
+import styles from "./loginForm.css";
 
 export default function LoginForm(props) {
   const [username, setUsername] = useState("");
@@ -13,18 +14,19 @@ export default function LoginForm(props) {
   }
 
   return (
-    <form onSubmit={onSubmit}>
-      <div>
+    <form onSubmit={onSubmit} className={styles.form}>
+      <div className={styles.formGroup}>
         <label htmlFor="username">Username</label>
         <input
           type="text"
           id="username"
           value={username}
           onChange={e => setUsername(e.target.value)}
+          autoFocus
         />
       </div>
 
-      <div>
+      <div className={styles.formGroup}>
         <label htmlFor="password">Password</label>
         <input
           type="password"
