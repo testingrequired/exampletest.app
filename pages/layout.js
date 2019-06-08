@@ -6,6 +6,9 @@ import { LoadingContext } from "../contexts/loadingContext";
 import { ConfigContext } from "../contexts/configContext";
 import styles from "./layout.css";
 import Loader from "../components/loader";
+import { AuthContext } from "../contexts/authContext";
+import Conditional from "../components/conditional";
+import LoginForm from "../components/LoginForm";
 
 /**
  * Main site layout
@@ -14,6 +17,7 @@ import Loader from "../components/loader";
 export default function Layout({ children, title }) {
   const { setIsLoading } = useContext(LoadingContext);
   const { config } = useContext(ConfigContext);
+  const auth = useContext(AuthContext);
 
   useEffect(() => {
     const { loadingJitter: jitter, loadingDelay: delay } = config;
@@ -25,7 +29,9 @@ export default function Layout({ children, title }) {
   return (
     <main className={styles.main}>
       <Loader>
-        <Content {...{ children, title }} />
+        <Conditional when={auth.isLoggedIn} else={<LoginForm />}>
+          <Content {...{ children, title }} />
+        </Conditional>
       </Loader>
     </main>
   );
