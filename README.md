@@ -14,6 +14,32 @@ The goal of the app is to teach test automation at different difficulty levels w
 
 The develop of the app is on going.
 
+### Admin
+
+https://exampletest.app/_
+
+The admin pages allow the test environment to be configured.
+
+#### Config
+
+https://exampletest.app/_/config
+
+Various configuration can be editted here.
+
+#### loadingDelay
+
+Maximum loading time between page loads.
+
+#### loadingJitter
+
+Jitter loading times between `0` and `loadingDelay`.
+
+#### Users
+
+https://exampletest.app/_/users
+
+Registered users are listed here.
+
 ## Development
 
 Run the development server.
