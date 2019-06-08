@@ -50,7 +50,7 @@ function Content({ children, title }) {
       </Link>
 
       <nav className={styles.nav}>
-        <Link href="/config">Config</Link>
+        <Link href="/_">Admin</Link>
       </nav>
 
       {children}
