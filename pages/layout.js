@@ -8,7 +8,7 @@ import styles from "./layout.css";
 import Loader from "../components/loader";
 import { AuthContext } from "../contexts/authContext";
 import Conditional from "../components/conditional";
-import LoginForm from "../components/loginForm";
+import LoginForm from "../components/LoginForm";
 
 /**
  * Main site layout
@@ -26,46 +26,11 @@ export default function Layout({ children, title }) {
     setTimeout(() => setIsLoading(false), loadingDelay);
   }, []);
 
-  function onClickLogout(e) {
-    e.preventDefault();
-    auth.setIsLoggedIn(false);
-  }
-
-  const subTitle = title ? title : "";
-
   return (
     <main className={styles.main}>
       <Loader>
         <Conditional when={auth.isLoggedIn} else={<LoginForm />}>
-          <Head>
-            <title>{subTitle ? `Lemon - ${subTitle}` : "Lemon"}</title>
-            <link
-              rel="shortcut icon"
-              type="image/png"
-              href="/static/favicon.ico"
-            />
-          </Head>
-
-          <Link href="/">
-            <h1 className={styles.header}>🍋 Lemon</h1>
-          </Link>
-
-          <nav className={styles.nav}>
-            <ul>
-              <li>
-                <Link href="/_">Admin</Link>
-              </li>
-              <li>
-                <a href="" onClick={onClickLogout}>
-                  Logout
-                </a>
-              </li>
-            </ul>
-          </nav>
-
-          <hr />
-
-          {children}
+          <Content {...{ children, title }} />
         </Conditional>
       </Loader>
     </main>
@@ -73,5 +38,34 @@ export default function Layout({ children, title }) {
 }
 
 Layout.propTypes = {
+  title: PropTypes.string
+};
+
+function Content({ children, title }) {
+  const subTitle = title ? title : "";
+
+  return (
+    <>
+      <Head>
+        <title>{subTitle ? `Lemon - ${subTitle}` : "Lemon"}</title>
+        <link rel="shortcut icon" type="image/png" href="/static/favicon.ico" />
+      </Head>
+
+      <Link href="/">
+        <h1 className={styles.header}>🍋 Lemon</h1>
+      </Link>
+
+      <nav className={styles.nav}>
+        <Link href="/_">Admin</Link>
+      </nav>
+
+      <hr />
+
+      {children}
+    </>
+  );
+}
+
+Content.propTypes = {
   title: PropTypes.string
 };

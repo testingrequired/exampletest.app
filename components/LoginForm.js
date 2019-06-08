@@ -10,8 +10,6 @@ export default function LoginForm(props) {
   function onSubmit(e) {
     e.preventDefault();
     auth.login(username, password);
-    setUsername("");
-    setPassword("");
   }
 
   return (
