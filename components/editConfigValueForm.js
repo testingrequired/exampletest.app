@@ -18,8 +18,7 @@ export default function EditConfigValueForm() {
   }
 
   function onChangeSelectedKey(e) {
-    const value =
-      e.target.type === "checkbox" ? e.target.checked : e.target.value;
+    const value = e.target.value;
     setSelectedKey(value);
     setUpdatedValue(config[value]);
   }
@@ -55,8 +54,8 @@ export default function EditConfigValueForm() {
 
 function EditConfigValueInput({ value, onChange }) {
   return typeMatcher(value, {
-    string: () => <input type="type" value={value} onChange={onChange} />,
-    number: () => <input type="number" value={value} onChange={onChange} />,
+    string: () => <input type="text" value={value} onChange={onChange} />,
+    number: () => <input type="text" value={value} onChange={onChange} />,
     boolean: () => <input type="checkbox" checked={value} onChange={onChange} />
   });
 }

@@ -16,8 +16,11 @@ export default function Layout({ children, title }) {
   const { config } = useContext(ConfigContext);
 
   useEffect(() => {
+    const loadingDelay = config.loadingJitter
+      ? Math.random() * (config.loadingDelay - 0) + 0
+      : config.loadingDelay;
     setTimeout(() => setIsLoading(true));
-    setTimeout(() => setIsLoading(false), config.loadingDelay);
+    setTimeout(() => setIsLoading(false), loadingDelay);
   }, []);
 
   return (
