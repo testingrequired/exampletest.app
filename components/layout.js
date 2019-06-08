@@ -36,7 +36,7 @@ Layout.propTypes = {
 };
 
 function Content({ children, title }) {
-  const siteTitle = "Example Test App";
+  const siteTitle = "🍋 Lemon";
   const subTitle = title ? title : "";
 
   return (
