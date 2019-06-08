@@ -53,6 +53,8 @@ function Content({ children, title }) {
         <Link href="/_">Admin</Link>
       </nav>
 
+      <hr />
+
       {children}
     </>
   );
