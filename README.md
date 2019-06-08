@@ -4,7 +4,7 @@ A web app designed to be a target for test automation scripts.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/e809471a-a410-45c8-937d-d5969a65f174/deploy-status)](https://app.netlify.com/sites/example-test-app/deploys)
 
-https://example-test-app.netlify.com/
+https://exampletest.app/
 
 ## Development
 
