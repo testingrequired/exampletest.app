@@ -2,6 +2,7 @@ import React from "react";
 import App, { Container } from "next/app";
 import { LoadingProvider } from "../contexts/loadingContext";
 import { ConfigProvider } from "../contexts/configContext";
+import { AuthProvider } from "../contexts/authContext";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -21,7 +22,9 @@ class MyApp extends App {
       <Container>
         <ConfigProvider>
           <LoadingProvider>
-            <Component {...pageProps} />
+            <AuthProvider>
+              <Component {...pageProps} />
+            </AuthProvider>
           </LoadingProvider>
         </ConfigProvider>
       </Container>
