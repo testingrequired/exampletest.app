@@ -8,7 +8,14 @@ export default function AdminLayout({ children, title }) {
       <h2>Admin</h2>
 
       <nav>
-        <Link href="/_/config">Config</Link>
+        <ul>
+          <li>
+            <Link href="/_/config">Config</Link>
+          </li>
+          <li>
+            <Link href="/_/users">Users</Link>
+          </li>
+        </ul>
       </nav>
 
       <hr />
