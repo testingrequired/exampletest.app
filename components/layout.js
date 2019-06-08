@@ -36,17 +36,17 @@ Layout.propTypes = {
 };
 
 function Content({ children, title }) {
-  const siteTitle = "🍋 Lemon";
   const subTitle = title ? title : "";
 
   return (
     <>
       <Head>
-        <title>{subTitle ? `${subTitle} - ${siteTitle}` : siteTitle}</title>
+        <title>{subTitle ? `Lemon - ${subTitle}` : "Lemon"}</title>
+        <link rel="shortcut icon" type="image/png" href="/static/favicon.ico" />
       </Head>
 
       <Link href="/">
-        <h1 className={styles.header}>{siteTitle}</h1>
+        <h1 className={styles.header}>🍋 Lemon</h1>
       </Link>
 
       <nav className={styles.nav}>
