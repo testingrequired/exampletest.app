@@ -23,6 +23,12 @@ export default function EditConfigValueForm() {
     setUpdatedValue(config[value]);
   }
 
+  function onClickCancel(e) {
+    e.preventDefault();
+    setSelectedKey("");
+    setUpdatedValue("");
+  }
+
   return (
     <form onSubmit={onSubmitSave}>
       <select value={selectedKey} onChange={onChangeSelectedKey}>
@@ -36,7 +42,7 @@ export default function EditConfigValueForm() {
       </select>
 
       {selectedKey ? (
-        <section>
+        <>
           <EditConfigValueInput
             value={updatedValue}
             onChange={e =>
@@ -46,7 +52,8 @@ export default function EditConfigValueForm() {
             }
           />
           <button>Save</button>
-        </section>
+          <button onClick={onClickCancel}>Cancel</button>
+        </>
       ) : null}
     </form>
   );
