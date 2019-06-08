@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ConfigContext } from "../../../contexts/configContext";
 import Layout from "../../../components/layout";
 import styles from "./styles.css";
-import EditConfigValueForm from "./editConfigValueForm";
+import EditConfigValueForm from "../../../components/editConfigValueForm";
 import AdminLayout from "../layout";
 
 export default function Config() {
