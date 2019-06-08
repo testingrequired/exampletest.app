@@ -12,13 +12,12 @@ import Loader from "./loader";
  * @param {object} props
  */
 export default function Layout({ children, title }) {
-  const { setIsLoading, isLoading } = useContext(LoadingContext);
+  const { setIsLoading } = useContext(LoadingContext);
   const { config } = useContext(ConfigContext);
 
   useEffect(() => {
-    const loadingDelay = config.loadingJitter
-      ? Math.random() * (config.loadingDelay - 0) + 0
-      : config.loadingDelay;
+    const { loadingJitter: jitter, loadingDelay: delay } = config;
+    const loadingDelay = jitter ? Math.random() * (delay - 0) + 0 : delay;
     setTimeout(() => setIsLoading(true));
     setTimeout(() => setIsLoading(false), loadingDelay);
   }, []);
@@ -26,7 +25,7 @@ export default function Layout({ children, title }) {
   return (
     <main className={styles.main}>
       <Loader>
-        <Content title={title} children={children} />
+        <Content {...{ children, title }} />
       </Loader>
     </main>
   );
