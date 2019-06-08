@@ -1,14 +1,14 @@
 import { useContext } from "react";
-import { ConfigContext } from "../contexts/configContext";
-import Layout from "../components/layout";
-import styles from "./config.css";
-import EditConfigValueForm from "../components/editConfigValueForm";
+import { ConfigContext } from "../../contexts/configContext";
+import Layout from "../../components/layout";
+import styles from "./styles.css";
+import EditConfigValueForm from "../../components/editConfigValueForm";
 
 export default function Config() {
   const { config } = useContext(ConfigContext);
 
   return (
-    <Layout>
+    <Layout title="Config">
       <h2>Config</h2>
 
       <hr />
