@@ -20,23 +20,21 @@ export default function Layout({ children, title }) {
         <link rel="stylesheet" href="/static/style.css" />
       </Head>
 
-      <Loader>
-        <main className={styles.main}>
-          <Link href="/">
-            <h1 className={styles.header}>🍋 Lemon</h1>
-          </Link>
+      <main className={styles.main}>
+        <Link href="/">
+          <h1 className={styles.header}>🍋 Lemon</h1>
+        </Link>
 
-          <Protected>
+        <Protected>
+          <Loader>
             <nav className={styles.nav}>
               <Link href="/_">Admin</Link>
             </nav>
 
-            <hr />
-
             {children}
-          </Protected>
-        </main>
-      </Loader>
+          </Loader>
+        </Protected>
+      </main>
     </>
   );
 }

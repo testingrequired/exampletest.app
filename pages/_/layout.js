@@ -18,8 +18,6 @@ export default function AdminLayout({ children, title }) {
         </ul>
       </nav>
 
-      <hr />
-
       {title && <h3>{title}</h3>}
 
       {children}
