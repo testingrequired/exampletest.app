@@ -6,7 +6,7 @@ export default function Protected(props) {
   const { currentUser } = useAuthContext();
 
   return (
-    <Conditional when={currentUser} else={<LoginForm />}>
+    <Conditional when={!!currentUser} else={<LoginForm />}>
       {props.children}
     </Conditional>
   );
