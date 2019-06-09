@@ -1,12 +1,12 @@
-import { useState, useContext } from "react";
-import { AuthContext } from "../contexts/authContext";
+import { useState } from "react";
+import { useAuthContext } from "../contexts/authContext";
 import styles from "./loginForm.css";
 
 export default function LoginForm(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const auth = useContext(AuthContext);
+  const auth = useAuthContext();
 
   function onSubmit(e) {
     e.preventDefault();

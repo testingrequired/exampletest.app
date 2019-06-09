@@ -1,13 +1,12 @@
-import { useContext } from "react";
 import Conditional from "./conditional";
 import LoginForm from "./loginForm";
-import { AuthContext } from "../contexts/authContext";
+import { useAuthContext } from "../contexts/authContext";
 
 export default function Protected(props) {
-  const { isLoggedIn } = useContext(AuthContext);
+  const { currentUser } = useAuthContext();
 
   return (
-    <Conditional when={isLoggedIn} else={<LoginForm />}>
+    <Conditional when={currentUser} else={<LoginForm />}>
       {props.children}
     </Conditional>
   );

@@ -1,10 +1,9 @@
-import { useContext } from "react";
 import AdminLayout from "../layout";
-import { AuthContext } from "../../../contexts/authContext";
+import { useAuthContext } from "../../../contexts/authContext";
 import styles from "./styles.css";
 
 export default function AdminUsers() {
-  const auth = useContext(AuthContext);
+  const auth = useAuthContext();
 
   return (
     <AdminLayout title="Users">

@@ -3,7 +3,6 @@ import Link from "next/link";
 import PropTypes from "prop-types";
 import styles from "./layout.css";
 import Loader from "../components/loader";
-import Protected from "../components/protected";
 
 /**
  * Main site layout
