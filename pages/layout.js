@@ -26,17 +26,23 @@ export default function Layout({ children, title }) {
 
       <Loader>
         <main className={styles.main}>
-          <Link href="/">
-            <h1 className={styles.header}>🍋 Lemon</h1>
-          </Link>
+          <h1 className={styles.header}>
+            <Link href="/">
+              <a>🍋 Lemon</a>
+            </Link>
+          </h1>
 
           <NavMenu>
             <ul>
               <li>
-                <Link href="/user">{auth.currentUser ? "User" : "Login"}</Link>
+                <Link href="/user">
+                  <a>{auth.currentUser ? "User" : "Login"}</a>
+                </Link>
               </li>
               <li>
-                <Link href="/_">Admin</Link>
+                <Link href="/_">
+                  <a>Admin</a>
+                </Link>
               </li>
             </ul>
           </NavMenu>

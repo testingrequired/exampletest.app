@@ -4,6 +4,10 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.main h1 a {
+  color: #333;
+}
+
 .header:hover {
   cursor: pointer;
 }
