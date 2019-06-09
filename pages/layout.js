@@ -3,6 +3,7 @@ import Link from "next/link";
 import PropTypes from "prop-types";
 import styles from "./layout.css";
 import Loader from "../components/loader";
+import { useAuthContext } from "../contexts/authContext";
 
 /**
  * Main site layout
@@ -10,6 +11,7 @@ import Loader from "../components/loader";
  */
 export default function Layout({ children, title }) {
   const subTitle = title ? title : "";
+  const auth = useAuthContext();
 
   return (
     <>
@@ -24,6 +26,14 @@ export default function Layout({ children, title }) {
           <Link href="/">
             <h1 className={styles.header}>🍋 Lemon</h1>
           </Link>
+
+          <nav>
+            <ul>
+              <li>
+                <Link href="/user">{auth.currentUser ? "User" : "Login"}</Link>
+              </li>
+            </ul>
+          </nav>
 
           {children}
         </main>
