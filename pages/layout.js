@@ -10,13 +10,15 @@ import { useAuthContext } from "../contexts/authContext";
  * @param {object} props
  */
 export default function Layout({ children, title }) {
-  const subTitle = title ? title : "";
   const auth = useAuthContext();
+
+  const subTitle = title ? title : "";
+  const siteTitle = subTitle ? `Lemon - ${subTitle}` : "Lemon";
 
   return (
     <>
       <Head>
-        <title>{subTitle ? `Lemon - ${subTitle}` : "Lemon"}</title>
+        <title>{siteTitle}</title>
         <link rel="shortcut icon" type="image/png" href="/static/favicon.ico" />
         <link rel="stylesheet" href="/static/style.css" />
       </Head>
