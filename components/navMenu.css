@@ -1,0 +1,16 @@
+.navMenu {
+}
+
+.navMenu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.navMenu li {
+  display: inline;
+  margin-left: 1em;
+}
+
+.navMenu li:first-child {
+  margin-left: 0;
+}

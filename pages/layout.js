@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import styles from "./layout.css";
 import Loader from "../components/loader";
 import { useAuthContext } from "../contexts/authContext";
+import NavMenu from "../components/navMenu";
 
 /**
  * Main site layout
@@ -29,13 +30,16 @@ export default function Layout({ children, title }) {
             <h1 className={styles.header}>🍋 Lemon</h1>
           </Link>
 
-          <nav>
+          <NavMenu>
             <ul>
               <li>
                 <Link href="/user">{auth.currentUser ? "User" : "Login"}</Link>
               </li>
+              <li>
+                <Link href="/_">Admin</Link>
+              </li>
             </ul>
-          </nav>
+          </NavMenu>
 
           {children}
         </main>
