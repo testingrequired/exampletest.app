@@ -5,6 +5,7 @@ import styles from "./layout.css";
 import Loader from "../components/loader";
 import { useAuthContext } from "../contexts/authContext";
 import NavMenu from "../components/navMenu";
+import Page from "../components/page";
 
 /**
  * Main site layout
@@ -47,7 +48,7 @@ export default function Layout({ children, title }) {
             </ul>
           </NavMenu>
 
-          {children}
+          <Page>{children}</Page>
         </main>
       </Loader>
     </>
