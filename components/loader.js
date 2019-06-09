@@ -1,11 +1,11 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import Conditional from "./conditional";
-import { LoadingContext } from "../contexts/loadingContext";
-import { ConfigContext } from "../contexts/configContext";
+import { useLoadingContext } from "../contexts/loadingContext";
+import { useConfigContext } from "../contexts/configContext";
 
 export default function Loader(props) {
-  const { isLoading, setIsLoading } = useContext(LoadingContext);
-  const { config } = useContext(ConfigContext);
+  const { isLoading, setIsLoading } = useLoadingContext();
+  const { config } = useConfigContext();
 
   useEffect(() => {
     const { loadingJitter: jitter, loadingDelay: delay } = config;

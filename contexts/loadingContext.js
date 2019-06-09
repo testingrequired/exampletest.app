@@ -11,3 +11,7 @@ export function LoadingProvider({ children }) {
     </LoadingContext.Provider>
   );
 }
+
+export function useLoadingContext() {
+  return useContext(LoadingContext);
+}

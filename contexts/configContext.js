@@ -19,6 +19,10 @@ export function ConfigProvider({ children }) {
   );
 }
 
+export function useConfigContext() {
+  return useContext(ConfigContext);
+}
+
 function reducer(state, action) {
   switch (action.type) {
     case "SET":

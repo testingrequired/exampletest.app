@@ -1,11 +1,10 @@
-import { useContext } from "react";
-import { ConfigContext } from "../../../contexts/configContext";
+import { useConfigContext } from "../../../contexts/configContext";
 import styles from "./styles.css";
 import EditConfigValueForm from "./editConfigValueForm";
 import AdminLayout from "../layout";
 
 export default function Config() {
-  const { config } = useContext(ConfigContext);
+  const { config } = useConfigContext();
 
   return (
     <AdminLayout title="Config">
