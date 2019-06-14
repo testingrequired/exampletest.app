@@ -1,7 +1,7 @@
-import AdminLayout from "../layout";
-import { useAuthContext } from "../../../contexts/authContext";
-import Layout from "../../../layouts/layout";
-import Table from "../../../components/table";
+import AdminLayout from "./layout";
+import { useAuthContext } from "../../contexts/authContext";
+import Layout from "../../layouts/layout";
+import Table from "../../components/table";
 
 export default function AdminUsersPage() {
   const auth = useAuthContext();

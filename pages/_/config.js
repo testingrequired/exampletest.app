@@ -1,8 +1,8 @@
-import { useConfigContext } from "../../../contexts/configContext";
-import EditConfigValueForm from "./editConfigValueForm";
-import AdminLayout from "../layout";
-import Layout from "../../../layouts/layout";
-import Table from "../../../components/table";
+import { useConfigContext } from "../../contexts/configContext";
+import EditConfigValueForm from "../../components/editConfigValueForm";
+import AdminLayout from "./layout";
+import Layout from "../../layouts/layout";
+import Table from "../../components/table";
 
 export default function AdminConfigPage() {
   const { config } = useConfigContext();
