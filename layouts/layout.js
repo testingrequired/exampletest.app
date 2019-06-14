@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
 import PropTypes from "prop-types";
-import styles from "./layout.css";
 import Loader from "../components/loader";
 import { useAuthContext } from "../contexts/authContext";
 import NavMenu from "../components/navMenu";
@@ -26,8 +25,8 @@ export default function Layout({ children, title }) {
       </Head>
 
       <Loader>
-        <main className={styles.main}>
-          <h1 className={styles.header}>
+        <main>
+          <h1>
             <Link href="/">
               <a>🍋 Lemon</a>
             </Link>
