@@ -1,13 +1,10 @@
 import AdminLayout from "./layout";
-import ProtectedLayout from "../../layouts/protectedLayout";
 import Layout from "../../layouts/layout";
 
-export default function AdminIndex() {
+export default function AdminIndexPage() {
   return (
     <Layout>
-      <ProtectedLayout>
-        <AdminLayout />
-      </ProtectedLayout>
+      <AdminLayout />
     </Layout>
   );
 }

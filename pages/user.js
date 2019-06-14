@@ -2,7 +2,7 @@ import Layout from "../layouts/layout";
 import ProtectedLayout from "../layouts/protectedLayout";
 import { useAuthContext } from "../contexts/authContext";
 
-export default function UserIndex(params) {
+export default function UserPage() {
   const { currentUser } = useAuthContext();
 
   return (

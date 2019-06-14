@@ -4,7 +4,7 @@ import EditConfigValueForm from "./editConfigValueForm";
 import AdminLayout from "../layout";
 import Layout from "../../../layouts/layout";
 
-export default function Config() {
+export default function AdminConfigPage() {
   const { config } = useConfigContext();
 
   return (

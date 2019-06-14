@@ -3,7 +3,7 @@ import { useAuthContext } from "../../../contexts/authContext";
 import styles from "./styles.css";
 import Layout from "../../../layouts/layout";
 
-export default function AdminUsers() {
+export default function AdminUsersPage() {
   const auth = useAuthContext();
 
   return (
