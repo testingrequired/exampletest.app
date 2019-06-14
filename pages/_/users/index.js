@@ -1,7 +1,7 @@
 import AdminLayout from "../layout";
 import { useAuthContext } from "../../../contexts/authContext";
-import styles from "./styles.css";
 import Layout from "../../../layouts/layout";
+import Table from "../../../components/table";
 
 export default function AdminUsersPage() {
   const auth = useAuthContext();
@@ -9,7 +9,7 @@ export default function AdminUsersPage() {
   return (
     <Layout>
       <AdminLayout>
-        <table className={styles.table}>
+        <Table>
           <thead>
             <tr>
               <th>Username</th>
@@ -26,7 +26,7 @@ export default function AdminUsersPage() {
               );
             })}
           </tbody>
-        </table>
+        </Table>
       </AdminLayout>
     </Layout>
   );

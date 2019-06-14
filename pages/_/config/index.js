@@ -1,8 +1,8 @@
 import { useConfigContext } from "../../../contexts/configContext";
-import styles from "./styles.css";
 import EditConfigValueForm from "./editConfigValueForm";
 import AdminLayout from "../layout";
 import Layout from "../../../layouts/layout";
+import Table from "../../../components/table";
 
 export default function AdminConfigPage() {
   const { config } = useConfigContext();
@@ -16,7 +16,7 @@ export default function AdminConfigPage() {
 
         <h4>Values</h4>
 
-        <table className={styles.table}>
+        <Table>
           <thead>
             <tr>
               <th>Key</th>
@@ -33,7 +33,7 @@ export default function AdminConfigPage() {
               );
             })}
           </tbody>
-        </table>
+        </Table>
       </AdminLayout>
     </Layout>
   );
