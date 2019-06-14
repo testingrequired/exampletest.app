@@ -1,5 +1,11 @@
-import styles from "./page.css";
+import styled from "styled-components";
 
-export default function Page(props) {
-  return <div className={styles.page}>{props.children}</div>;
+function Page({ className, children }) {
+  return <div className={className}>{children}</div>;
 }
+
+export default styled(Page)`
+  border: 1px solid green;
+  background-color: white;
+  padding: 1em 2em;
+`;
