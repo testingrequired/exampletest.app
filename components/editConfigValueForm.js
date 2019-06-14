@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useConfigContext } from "../../../contexts/configContext";
-import typeMatcher from "../../../utils/typeMatcher";
+import typeMatcher from "../utils/typeMatcher";
+import { useConfigContext } from "../contexts/configContext";
 
 export default function EditConfigValueForm() {
   const { config, setConfigValue } = useConfigContext();
