@@ -5,13 +5,15 @@ import Loader from "../components/loader";
 import { useAuthContext } from "../contexts/authContext";
 import NavMenu from "../components/navMenu";
 import Page from "../components/page";
+import LogoutLink from "../components/logoutLink";
+import Conditional from "../components/conditional";
 
 /**
  * Main site layout
  * @param {object} props
  */
 export default function Layout({ children, title }) {
-  const auth = useAuthContext();
+  const { currentUser } = useAuthContext();
 
   const subTitle = title ? title : "";
   const siteTitle = subTitle ? `Lemon - ${subTitle}` : "Lemon";
@@ -36,7 +38,7 @@ export default function Layout({ children, title }) {
             <ul>
               <li>
                 <Link href="/user">
-                  <a>{auth.currentUser ? "User" : "Login"}</a>
+                  <a>{currentUser ? "User" : "Login"}</a>
                 </Link>
               </li>
               <li>
@@ -44,6 +46,11 @@ export default function Layout({ children, title }) {
                   <a>Admin</a>
                 </Link>
               </li>
+              <Conditional when={!!currentUser} else={null}>
+                <li>
+                  <LogoutLink />
+                </li>
+              </Conditional>
             </ul>
           </NavMenu>
 

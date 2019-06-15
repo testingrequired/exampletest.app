@@ -17,8 +17,12 @@ export function AuthProvider({ children }) {
     }
   }
 
+  function logout() {
+    setCurrentUser(null);
+  }
+
   return (
-    <AuthContext.Provider value={{ login, currentUser }}>
+    <AuthContext.Provider value={{ login, logout, currentUser }}>
       {children}
     </AuthContext.Provider>
   );
