@@ -3,6 +3,7 @@ import App, { Container } from "next/app";
 import { LoadingProvider } from "../contexts/loadingContext";
 import { ConfigProvider } from "../contexts/configContext";
 import { AuthProvider } from "../contexts/authContext";
+import { UsersProvider } from "../contexts/usersContext";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -22,9 +23,11 @@ class MyApp extends App {
       <Container>
         <ConfigProvider>
           <LoadingProvider>
-            <AuthProvider>
-              <Component {...pageProps} />
-            </AuthProvider>
+            <UsersProvider>
+              <AuthProvider>
+                <Component {...pageProps} />
+              </AuthProvider>
+            </UsersProvider>
           </LoadingProvider>
         </ConfigProvider>
       </Container>

@@ -1,19 +1,12 @@
 import { createContext, useState, useContext } from "react";
+import { useUsersContext } from "./usersContext";
 
 export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  const [users, setUsers] = useState([
-    makeUser("testUser", "password"),
-    makeUser("testUser2", "password2"),
-    makeUser("testUser3", "password3")
-  ]);
+  const { users } = useUsersContext();
 
-  const [currentUser, setCurrentUser] = useState(null);
-
-  function register(username, password) {
-    setUsers([...users, { username, password }]);
-  }
+  const [currentUser, setCurrentUser] = useState(users[0]);
 
   function login(username, password) {
     const foundUser = users.find(
@@ -25,7 +18,7 @@ export function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ users, register, login, currentUser }}>
+    <AuthContext.Provider value={{ login, currentUser }}>
       {children}
     </AuthContext.Provider>
   );
@@ -33,8 +26,4 @@ export function AuthProvider({ children }) {
 
 export function useAuthContext() {
   return useContext(AuthContext);
-}
-
-function makeUser(username, password) {
-  return { username, password };
 }
