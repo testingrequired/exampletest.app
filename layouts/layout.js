@@ -41,11 +41,6 @@ export default function Layout({ children, title }) {
                   <a>{currentUser ? "User" : "Login"}</a>
                 </Link>
               </li>
-              <li>
-                <Link href="/_">
-                  <a>Admin</a>
-                </Link>
-              </li>
               <Conditional when={!!currentUser} else={null}>
                 <li>
                   <LogoutLink />
