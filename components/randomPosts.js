@@ -1,16 +1,21 @@
+import { useState, useEffect } from "react";
 import Chance from "chance";
 import Post from "./design/post";
 
 const chance = new Chance();
 
 export default function RandomPosts({ minLikes, maxLikes, n }) {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    setPosts(chance.n(() => createRandomPost(minLikes, maxLikes), n));
+  }, []);
+
   return (
     <>
-      {chance
-        .n(() => createRandomPost(minLikes, maxLikes), n)
-        .map((post, i) => (
-          <Post key={i} {...post} />
-        ))}
+      {posts.map((post, i) => (
+        <Post key={i} {...post} />
+      ))}
     </>
   );
 }
