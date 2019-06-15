@@ -15,7 +15,7 @@ export default function UserPage() {
 
         <h4>Trending</h4>
 
-        <RandomPosts n={10} minLikes={250} maxLikes={5000} />
+        <RandomPosts n={25} minLikes={250} maxLikes={1000} />
 
         <h4>Recommended</h4>
 
