@@ -6,7 +6,7 @@ export const AuthContext = createContext();
 export function AuthProvider({ children }) {
   const { users } = useUsersContext();
 
-  const [currentUser, setCurrentUser] = useState(users[0]);
+  const [currentUser, setCurrentUser] = useState(null);
 
   function login(username, password) {
     const foundUser = users.find(
