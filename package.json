@@ -12,6 +12,7 @@
   "author": "Kylee Tilley <kylee@testingrequired.com>",
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
+    "chance": "^1.0.18",
     "next": "^8.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
