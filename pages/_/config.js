@@ -2,7 +2,7 @@ import { useConfigContext } from "../../contexts/configContext";
 import EditConfigValueForm from "../../components/editConfigValueForm";
 import AdminLayout from "./layout";
 import Layout from "../../layouts/layout";
-import Table from "../../components/table";
+import Table from "../../components/design/table";
 
 export default function AdminConfigPage() {
   const { config } = useConfigContext();

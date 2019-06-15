@@ -1,6 +1,6 @@
 import LoginForm from "../components/loginForm";
 import { useAuthContext } from "../contexts/authContext";
-import Conditional from "../components/conditional";
+import Conditional from "../components/design/conditional";
 
 /**
  * Main site layout

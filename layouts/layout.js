@@ -3,10 +3,10 @@ import Link from "next/link";
 import PropTypes from "prop-types";
 import Loader from "../components/loader";
 import { useAuthContext } from "../contexts/authContext";
-import NavMenu from "../components/navMenu";
-import Page from "../components/page";
+import NavMenu from "../components/design/navMenu";
+import Page from "../components/design/page";
 import LogoutLink from "../components/logoutLink";
-import Conditional from "../components/conditional";
+import Conditional from "../components/design/conditional";
 
 /**
  * Main site layout

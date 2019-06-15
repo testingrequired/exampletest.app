@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Conditional from "./conditional";
+import Conditional from "./design/conditional";
 import { useLoadingContext } from "../contexts/loadingContext";
 import { useConfigContext } from "../contexts/configContext";
 

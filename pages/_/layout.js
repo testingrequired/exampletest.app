@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import NavMenu from "../../components/navMenu";
+import NavMenu from "../../components/design/navMenu";
 
 export default function AdminLayout({ children, title }) {
   return (
