@@ -3,12 +3,12 @@ import ProtectedLayout from "../layouts/protectedLayout";
 import { useAuthContext } from "../contexts/authContext";
 
 export default function UserPage() {
-  const { currentUser } = useAuthContext();
+  const { currentUsername } = useAuthContext();
 
   return (
     <Layout>
       <ProtectedLayout>
-        <h2>{currentUser && currentUser.username}</h2>
+        <h2>{currentUsername}</h2>
 
         <p>Welcome</p>
       </ProtectedLayout>
