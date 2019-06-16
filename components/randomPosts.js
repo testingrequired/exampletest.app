@@ -6,8 +6,6 @@ export default function RandomPosts({ minLikes, maxLikes, n }) {
   const [posts, setPosts] = useState([]);
   const { chance, seed } = useChanceContext();
 
-  debugger;
-
   useEffect(() => {
     setPosts(chance.n(() => createRandomPost(minLikes, maxLikes), n));
   }, [seed]);
