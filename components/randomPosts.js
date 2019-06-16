@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
-import Chance from "chance";
 import Post from "./design/post";
-
-const chance = new Chance();
+import { useChanceContext } from "../contexts/chanceContext";
 
 export default function RandomPosts({ minLikes, maxLikes, n }) {
   const [posts, setPosts] = useState([]);
+  const { chance, seed } = useChanceContext();
+
+  debugger;
 
   useEffect(() => {
     setPosts(chance.n(() => createRandomPost(minLikes, maxLikes), n));
-  }, []);
+  }, [seed]);
 
   return (
     <>

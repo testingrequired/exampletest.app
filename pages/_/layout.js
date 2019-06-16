@@ -10,6 +10,11 @@ export default function AdminLayout({ children, title }) {
       <NavMenu>
         <ul>
           <li>
+            <Link href="/_/seed">
+              <a>Seed</a>
+            </Link>
+          </li>
+          <li>
             <Link href="/_/config">
               <a>Config</a>
             </Link>
