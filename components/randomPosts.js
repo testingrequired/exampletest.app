@@ -20,7 +20,7 @@ export default function RandomPosts({ minLikes, maxLikes, n }) {
 }
 
 function createRandomPost(minLikes = 0, maxLikes = 100) {
-  const username = `@${chance.word()}`;
+  const username = chance.word();
   const body = chance.sentence();
   const likes = chance.integer({ min: minLikes, max: maxLikes });
   return { username, body, likes };
