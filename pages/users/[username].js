@@ -1,7 +1,10 @@
+import { useRouter } from "next/router";
 import Layout from "../../layouts/layout";
 import { useChanceContext } from "../../contexts/chanceContext";
 
-export default function UserPage({ username }) {
+export default function UserPage() {
+  const router = useRouter();
+  const { username } = router.query;
   const { chance } = useChanceContext();
 
   return (
@@ -25,9 +28,3 @@ export default function UserPage({ username }) {
     </Layout>
   );
 }
-
-UserPage.getInitialProps = async ({ query }) => {
-  const { username } = query;
-
-  return { username };
-};
