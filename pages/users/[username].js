@@ -2,6 +2,16 @@ import { useRouter } from "next/router";
 import Layout from "../../layouts/layout";
 import { useChanceContext } from "../../contexts/chanceContext";
 import RandomPosts from "../../components/randomPosts";
+import styled from "styled-components";
+
+const UserTable = styled.table`
+  text-align: left;
+  width: 100%;
+
+  th {
+    width: 10%;
+  }
+`;
 
 export default function UserPage() {
   const router = useRouter();
@@ -10,9 +20,9 @@ export default function UserPage() {
 
   return (
     <Layout>
-      <h2>{username}</h2>
+      <h2>@{username}</h2>
 
-      <table>
+      <UserTable>
         <tbody>
           <tr>
             <th>Name</th>
@@ -25,7 +35,7 @@ export default function UserPage() {
             </td>
           </tr>
         </tbody>
-      </table>
+      </UserTable>
 
       <h3>Posts</h3>
 
