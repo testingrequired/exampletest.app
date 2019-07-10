@@ -48,6 +48,7 @@ export default function Post({ username, body, likes }) {
     return (
       <LikeLinkButton
         onClick={postLikes === likes ? onClickLike : onClickUnlike}
+        liked={postLikes !== likes}
       >
         {postLikes} Likes
       </LikeLinkButton>
