@@ -1,11 +1,11 @@
-import Link from "next/link";
+import UserLink from "../userLink";
 
 export default function Post({ username, body, likes }) {
   return (
     <p>
-      <Link href={`users/[username]`} as={`users/${username}`}>
+      <UserLink username={username}>
         <a>@{username}</a>
-      </Link>
+      </UserLink>
       : {body} ({likes} likes)
     </p>
   );
