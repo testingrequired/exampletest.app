@@ -7,10 +7,8 @@ export default function Post({ username, body, likes }) {
 
   return (
     <p>
-      <UserLink username={username}>
-        <a>@{username}</a>
-      </UserLink>{" "}
-      {body} ({postLikes} likes) <LikeLink />
+      <UserLink username={username}>@{username}</UserLink> {body} ({postLikes}{" "}
+      likes) <LikeLink />
     </p>
   );
 
