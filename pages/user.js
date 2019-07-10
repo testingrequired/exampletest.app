@@ -9,17 +9,9 @@ export default function UserPage() {
   return (
     <Layout>
       <ProtectedLayout>
-        <h2>{currentUsername}</h2>
+        <h3>Timeline</h3>
 
-        <h3>Posts</h3>
-
-        <h4>Trending</h4>
-
-        <RandomPosts n={25} minLikes={250} maxLikes={1000} />
-
-        <h4>Recommended</h4>
-
-        <RandomPosts n={25} minLikes={25} maxLikes={200} />
+        <RandomPosts n={25} minLikes={0} maxLikes={250} />
       </ProtectedLayout>
     </Layout>
   );
