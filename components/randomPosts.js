@@ -21,7 +21,21 @@ export default function RandomPosts({ minLikes, maxLikes, n }) {
 
 function createRandomPost(minLikes = 0, maxLikes = 100) {
   const username = chance.word();
-  const body = chance.sentence();
+  const body = createSentence();
   const likes = chance.integer({ min: minLikes, max: maxLikes });
+
   return { username, body, likes };
+}
+
+function createSentence(maxHashTags = 5, maxSentences = 3) {
+  const paragraph = chance.paragraph({
+    sentences: chance.integer({ min: 0, max: maxSentences })
+  });
+
+  const hashTags = chance.n(
+    chance.hashtag,
+    chance.integer({ min: 0, max: maxHashTags })
+  );
+
+  return `${paragraph} ${hashTags.join(" ")}`;
 }

@@ -5,8 +5,8 @@ export default function Post({ username, body, likes }) {
     <p>
       <UserLink username={username}>
         <a>@{username}</a>
-      </UserLink>
-      : {body} ({likes} likes)
+      </UserLink>{" "}
+      {body} ({likes} likes)
     </p>
   );
 }
