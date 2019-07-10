@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import Post from "./design/post";
 import { useChanceContext } from "../contexts/chanceContext";
 
-export default function RandomPosts({ minLikes, maxLikes, n }) {
+export default function RandomPosts({ username, minLikes, maxLikes, n }) {
   const [posts, setPosts] = useState([]);
   const { chance, seed } = useChanceContext();
 
   useEffect(() => {
-    setPosts(chance.n(() => createRandomPost(minLikes, maxLikes), n));
+    setPosts(chance.n(() => createRandomPost(username, minLikes, maxLikes), n));
   }, [seed]);
 
   return (
@@ -19,8 +19,8 @@ export default function RandomPosts({ minLikes, maxLikes, n }) {
   );
 }
 
-function createRandomPost(minLikes = 0, maxLikes = 100) {
-  const username = chance.word();
+function createRandomPost(definedUsername, minLikes = 0, maxLikes = 100) {
+  const username = definedUsername || chance.word();
   const body = createSentence();
   const likes = chance.integer({ min: minLikes, max: maxLikes });
 
