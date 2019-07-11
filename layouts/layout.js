@@ -41,11 +41,20 @@ export default function Layout({ children, title }) {
                   <a>{currentUser ? "User" : "Login"}</a>
                 </Link>
               </li>
-              <Conditional when={!!currentUser} else={null}>
+
+              {!!currentUser ? (
                 <li>
                   <LogoutLink />
                 </li>
-              </Conditional>
+              ) : null}
+
+              {!currentUser ? (
+                <li>
+                  <Link href="/register">
+                    <a>Register</a>
+                  </Link>
+                </li>
+              ) : null}
             </ul>
           </NavMenu>
 
