@@ -5,6 +5,7 @@ import { ConfigProvider } from "../contexts/configContext";
 import { AuthProvider } from "../contexts/authContext";
 import { UsersProvider } from "../contexts/usersContext";
 import { ChanceProvider } from "../contexts/chanceContext";
+import Providers from "../components/providers";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -22,17 +23,17 @@ class MyApp extends App {
 
     return (
       <Container>
-        <ConfigProvider>
-          <ChanceProvider>
-            <LoadingProvider>
-              <UsersProvider>
-                <AuthProvider>
-                  <Component {...pageProps} />
-                </AuthProvider>
-              </UsersProvider>
-            </LoadingProvider>
-          </ChanceProvider>
-        </ConfigProvider>
+        <Providers
+          providers={[
+            ConfigProvider,
+            ChanceProvider,
+            LoadingProvider,
+            UsersProvider,
+            AuthProvider
+          ]}
+        >
+          <Component {...pageProps} />
+        </Providers>
       </Container>
     );
   }
