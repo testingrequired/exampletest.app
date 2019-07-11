@@ -21,17 +21,17 @@ class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
 
+    const providers = [
+      ConfigProvider,
+      ChanceProvider,
+      LoadingProvider,
+      UsersProvider,
+      AuthProvider
+    ];
+
     return (
       <Container>
-        <Providers
-          providers={[
-            ConfigProvider,
-            ChanceProvider,
-            LoadingProvider,
-            UsersProvider,
-            AuthProvider
-          ]}
-        >
+        <Providers providers={providers}>
           <Component {...pageProps} />
         </Providers>
       </Container>
