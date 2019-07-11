@@ -1,12 +1,14 @@
 import { createContext, useState, useContext } from "react";
+import { useChanceContext } from "./chanceContext";
 
 export const UsersContext = createContext();
 
 export function UsersProvider({ children }) {
+  const { chance } = useChanceContext();
+
   const [users, setUsers] = useState([
     makeUser("testUser", "password"),
-    makeUser("testUser2", "password2"),
-    makeUser("testUser3", "password3")
+    ...chance.n(() => makeUser(chance.word(), chance.word()), 5)
   ]);
 
   function register(username, password) {
@@ -25,5 +27,8 @@ export function useUsersContext() {
 }
 
 function makeUser(username, password) {
-  return { username, password };
+  return {
+    username,
+    password
+  };
 }
