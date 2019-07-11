@@ -5,7 +5,8 @@ export const ConfigContext = createContext();
 export function ConfigProvider({ children }) {
   const [config, dispatch] = useReducer(reducer, {
     loadingDelay: 250,
-    loadingJitter: true
+    loadingJitter: true,
+    showLoadingScreen: true
   });
 
   const setConfigValue = (key, value) => {

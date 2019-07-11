@@ -1,14 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Post from "./design/post";
 import { useChanceContext } from "../contexts/chanceContext";
 
 export default function RandomPosts({ username, minLikes, maxLikes, n }) {
-  const [posts, setPosts] = useState([]);
-  const { chance, seed } = useChanceContext();
-
-  useEffect(() => {
-    setPosts(chance.n(() => createRandomPost(username, minLikes, maxLikes), n));
-  }, [seed]);
+  const { chance } = useChanceContext();
+  const [posts] = useState(
+    chance.n(() => createRandomPost(username, minLikes, maxLikes), n)
+  );
 
   return (
     <>
@@ -17,25 +15,25 @@ export default function RandomPosts({ username, minLikes, maxLikes, n }) {
       ))}
     </>
   );
-}
 
-function createRandomPost(definedUsername, minLikes = 0, maxLikes = 100) {
-  const username = definedUsername || chance.word();
-  const body = createSentence();
-  const likes = chance.integer({ min: minLikes, max: maxLikes });
+  function createRandomPost(definedUsername, minLikes = 0, maxLikes = 100) {
+    const username = definedUsername || chance.word();
+    const body = createSentence();
+    const likes = chance.integer({ min: minLikes, max: maxLikes });
 
-  return { username, body, likes };
-}
+    return { username, body, likes };
+  }
 
-function createSentence(maxHashTags = 5, maxSentences = 3) {
-  const paragraph = chance.paragraph({
-    sentences: chance.integer({ min: 0, max: maxSentences })
-  });
+  function createSentence(maxHashTags = 5, maxSentences = 3) {
+    const paragraph = chance.paragraph({
+      sentences: chance.integer({ min: 0, max: maxSentences })
+    });
 
-  const hashTags = chance.n(
-    chance.hashtag,
-    chance.integer({ min: 0, max: maxHashTags })
-  );
+    const hashTags = chance.n(
+      chance.hashtag,
+      chance.integer({ min: 0, max: maxHashTags })
+    );
 
-  return `${paragraph} ${hashTags.join(" ")}`;
+    return `${paragraph} ${hashTags.join(" ")}`;
+  }
 }
