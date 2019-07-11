@@ -4,11 +4,11 @@ import styled from "styled-components";
 import { useAuthContext } from "../contexts/authContext";
 
 function RegisterForm(props) {
+  const auth = useAuthContext();
+  const users = useUsersContext();
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const auth = useAuthContext();
-
-  const users = useUsersContext();
 
   function onSubmit(e) {
     e.preventDefault();
