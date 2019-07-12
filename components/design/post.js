@@ -1,7 +1,8 @@
 import { useState } from "react";
-import UserLink from "../userLink";
-import LikeLinkButton from "./likeLink";
 import styled from "styled-components";
+import UserLink from "../userLink";
+import LikeButton from "./likeButton";
+import LikeText from "./likeText";
 import { useAuthContext } from "../../contexts/authContext";
 
 const PostStyle = styled.div`
@@ -42,24 +43,18 @@ export default function Post({ id, username, body, likes }) {
       <section className="body">{body}</section>
       <section className="likes">
         {currentUser ? (
-          <LikeLink>{postLikes} Likes</LikeLink>
+          <LikeButton
+            onClick={postLikes === likes ? onClickLike : onClickUnlike}
+            liked={postLikes !== likes}
+          >
+            {postLikes} Likes
+          </LikeButton>
         ) : (
-          <span style={{ fontSize: "1em" }}>{postLikes} Likes</span>
+          <LikeText>{postLikes} Likes</LikeText>
         )}
       </section>
     </PostStyle>
   );
-
-  function LikeLink({ children }) {
-    return (
-      <LikeLinkButton
-        onClick={postLikes === likes ? onClickLike : onClickUnlike}
-        liked={postLikes !== likes}
-      >
-        {children}
-      </LikeLinkButton>
-    );
-  }
 
   function onClickLike(e) {
     e.preventDefault();
