@@ -29,6 +29,11 @@ export default function AdminLayout({ children, title }) {
               <a>Posts</a>
             </Link>
           </li>
+          <li>
+            <Link href="/_/load">
+              <a>Load</a>
+            </Link>
+          </li>
         </ul>
       </NavMenu>
 
