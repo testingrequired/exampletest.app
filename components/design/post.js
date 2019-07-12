@@ -2,6 +2,7 @@ import { useState } from "react";
 import UserLink from "../userLink";
 import LikeLinkButton from "./likeLink";
 import styled from "styled-components";
+import { useAuthContext } from "../../contexts/authContext";
 
 const PostStyle = styled.div`
   display: flex;
@@ -31,6 +32,7 @@ const PostStyle = styled.div`
 
 export default function Post({ username, body, likes }) {
   const [postLikes, setPostLikes] = useState(likes);
+  const { currentUser } = useAuthContext();
 
   return (
     <PostStyle>
@@ -39,18 +41,22 @@ export default function Post({ username, body, likes }) {
       </section>
       <section className="body">{body}</section>
       <section className="likes">
-        <LikeLink />
+        {currentUser ? (
+          <LikeLink>{postLikes} Likes</LikeLink>
+        ) : (
+          <span style={{ fontSize: "1em" }}>{postLikes} Likes</span>
+        )}
       </section>
     </PostStyle>
   );
 
-  function LikeLink() {
+  function LikeLink({ children }) {
     return (
       <LikeLinkButton
         onClick={postLikes === likes ? onClickLike : onClickUnlike}
         liked={postLikes !== likes}
       >
-        {postLikes} Likes
+        {children}
       </LikeLinkButton>
     );
   }
