@@ -8,27 +8,37 @@ export function UsersProvider({ children }) {
 
   const [users, setUsers] = useState([
     makeUser("testUser", "password"),
-    ...chance.n(() => makeUser(chance.word(), chance.word()), 5)
+    ...chance.n(() => makeUser(chance.word(), chance.word()), 10)
   ]);
 
   function register(username, password) {
     setUsers([...users, { username, password }]);
   }
 
+  function getByUsername(username) {
+    return users.find(user => user.username === username);
+  }
+
   return (
-    <UsersContext.Provider value={{ users, register }}>
+    <UsersContext.Provider value={{ users, register, getByUsername }}>
       {children}
     </UsersContext.Provider>
   );
+
+  function makeUser(username, password) {
+    const profile = {
+      name: chance.name(),
+      location: `${chance.city()}, ${chance.state()}`
+    };
+
+    return {
+      username,
+      password,
+      profile
+    };
+  }
 }
 
 export function useUsersContext() {
   return useContext(UsersContext);
-}
-
-function makeUser(username, password) {
-  return {
-    username,
-    password
-  };
 }

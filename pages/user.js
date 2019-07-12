@@ -1,14 +1,26 @@
+import { useState, useEffect } from "react";
 import Layout from "../layouts/layout";
 import ProtectedLayout from "../layouts/protectedLayout";
-import RandomPosts from "../components/randomPosts";
+import PostList from "../components/design/postList";
+import { usePostsContext } from "../contexts/postsContext";
+import { useAuthContext } from "../contexts/authContext";
 
 export default function UserPage() {
+  const { getByUsername } = usePostsContext();
+  const { currentUser } = useAuthContext();
+
+  const [userPosts, setUserPosts] = useState([]);
+
+  useEffect(() => {
+    if (currentUser) setUserPosts(getByUsername(currentUser.username));
+  }, [currentUser]);
+
   return (
     <Layout>
       <ProtectedLayout>
         <h3>Timeline</h3>
 
-        <RandomPosts n={25} minLikes={0} maxLikes={250} />
+        <PostList posts={userPosts} />
       </ProtectedLayout>
     </Layout>
   );

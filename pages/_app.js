@@ -6,6 +6,7 @@ import { AuthProvider } from "../contexts/authContext";
 import { UsersProvider } from "../contexts/usersContext";
 import { ChanceProvider } from "../contexts/chanceContext";
 import Providers from "../components/providers";
+import { PostsProvider } from "../contexts/postsContext";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -26,6 +27,7 @@ class MyApp extends App {
       ChanceProvider,
       LoadingProvider,
       UsersProvider,
+      PostsProvider,
       AuthProvider
     ];
 
