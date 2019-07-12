@@ -15,7 +15,7 @@ export function PostsProvider({ children }) {
 
   useEffect(() => {
     users.length && setPosts(makePosts());
-  }, [users]);
+  }, [users, config.postsAmount]);
 
   useEffect(() => {
     setTopPosts(posts.sort((a, b) => b.likes - a.likes).slice(0, 10));
