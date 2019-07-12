@@ -1,15 +1,19 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 import { useChanceContext } from "./chanceContext";
 
 export const UsersContext = createContext();
 
 export function UsersProvider({ children }) {
-  const { chance } = useChanceContext();
+  const { chance, seed } = useChanceContext();
 
-  const [users, setUsers] = useState([
-    makeUser("testUser", "password"),
-    ...chance.n(() => makeUser(chance.word(), chance.word()), 10)
-  ]);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    setUsers([
+      makeUser("testUser", "password"),
+      ...chance.n(() => makeUser(chance.word(), chance.word()), 10)
+    ]);
+  }, [seed]);
 
   function register(username, password) {
     setUsers([...users, { username, password }]);

@@ -8,8 +8,12 @@ export function PostsProvider({ children }) {
   const { chance } = useChanceContext();
   const { users } = useUsersContext();
 
-  const [posts] = useState(makePosts());
+  const [posts, setPosts] = useState([]);
   const [topPosts, setTopPosts] = useState([]);
+
+  useEffect(() => {
+    users.length && setPosts(makePosts());
+  }, [users]);
 
   useEffect(() => {
     setTopPosts(posts.sort((a, b) => b.likes - a.likes).slice(0, 10));
