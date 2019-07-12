@@ -1,12 +1,14 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import { useChanceContext } from "./chanceContext";
 import { useUsersContext } from "./usersContext";
+import { useConfigContext } from "./configContext";
 
 export const PostsContext = createContext();
 
 export function PostsProvider({ children }) {
   const { chance } = useChanceContext();
   const { users } = useUsersContext();
+  const { config } = useConfigContext();
 
   const [posts, setPosts] = useState([]);
   const [topPosts, setTopPosts] = useState([]);
@@ -41,7 +43,7 @@ export function PostsProvider({ children }) {
             chance.pickone(users).username,
             chance.integer({ min: 0, max: 9000 })
           ),
-        1000
+        config.postsAmount
       )
     ];
   }

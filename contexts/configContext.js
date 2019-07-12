@@ -6,7 +6,9 @@ export function ConfigProvider({ children }) {
   const [config, dispatch] = useReducer(reducer, {
     loadingDelay: 0,
     loadingJitter: false,
-    showLoadingScreen: false
+    showLoadingScreen: false,
+    usersAmount: 10,
+    postsAmount: 1000
   });
 
   const setConfigValue = (key, value) => {
