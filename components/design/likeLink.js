@@ -5,7 +5,9 @@ export default styled.button`
   background: none;
   cursor: pointer;
   font-size: 1em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   outline: 0;
+  padding: 0;
 
   ${props =>
     props.liked &&
