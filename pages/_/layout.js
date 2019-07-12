@@ -24,6 +24,11 @@ export default function AdminLayout({ children, title }) {
               <a>Users</a>
             </Link>
           </li>
+          <li>
+            <Link href="/_/posts">
+              <a>Posts</a>
+            </Link>
+          </li>
         </ul>
       </NavMenu>
 

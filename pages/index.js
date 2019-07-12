@@ -1,16 +1,15 @@
 import Layout from "../layouts/layout";
-import RandomPosts from "../components/randomPosts";
+import { usePostsContext } from "../contexts/postsContext";
+import PostList from "../components/design/postList";
 
 export default function IndexPage() {
+  const { topPosts } = usePostsContext();
+
   return (
     <Layout title="Home">
       <h2>Top Posts</h2>
 
-      <RandomPosts n={10} minLikes={3000} maxLikes={6000} />
-
-      <h2>Trending Posts</h2>
-
-      <RandomPosts n={25} minLikes={250} maxLikes={1000} />
+      <PostList posts={topPosts} n={100} />
     </Layout>
   );
 }

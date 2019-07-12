@@ -1,23 +1,36 @@
+import { useState } from "react";
 import AdminLayout from "./layout";
 import Layout from "../../layouts/layout";
 import { useChanceContext } from "../../contexts/chanceContext";
-import RandomPosts from "../../components/randomPosts";
 
 export default function AdminUsersPage() {
-  const { seed, randomSeed } = useChanceContext();
+  const { seed, randomSeed, setSeed } = useChanceContext();
+  const [newSeed, setNewSeed] = useState("");
 
-  const onClick = e => {
+  const onClickRandomize = e => {
     e.preventDefault();
     randomSeed();
+  };
+
+  const onSubmit = e => {
+    e.preventDefault();
+    setSeed(newSeed);
+    setNewSeed("");
+  };
+
+  const onChangeNewSeed = e => {
+    setNewSeed(parseInt(e.target.value, 10));
   };
 
   return (
     <Layout>
       <AdminLayout>
-        <p>{seed}</p>
-        <button onClick={onClick}>Randomize</button>
-
-        <RandomPosts />
+        <form onSubmit={onSubmit}>
+          <input type="text" value={newSeed} onChange={onChangeNewSeed} />
+          <button>Set</button>
+          <button onClick={onClickRandomize}>Randomize</button>{" "}
+          <label htmlFor="">{seed}</label>
+        </form>
       </AdminLayout>
     </Layout>
   );

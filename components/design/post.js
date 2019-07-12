@@ -4,6 +4,7 @@ import UserLink from "../userLink";
 import LikeButton from "./likeButton";
 import LikeText from "./likeText";
 import { useAuthContext } from "../../contexts/authContext";
+import { usePostsContext } from "../../contexts/postsContext";
 
 const PostStyle = styled.div`
   display: flex;
@@ -31,21 +32,26 @@ const PostStyle = styled.div`
   }
 `;
 
-export default function Post({ id, username, body, likes }) {
-  const [postLikes, setPostLikes] = useState(likes);
+export default function Post({ id }) {
+  const { getById } = usePostsContext();
+  const post = getById(id);
+
+  const [postLikes, setPostLikes] = useState(post.likes);
   const { currentUser } = useAuthContext();
 
   return (
     <PostStyle className="post" data-post-id={id}>
       <section className="user">
-        <UserLink username={username}>@{username}</UserLink>
+        <UserLink username={post.username}>@{post.username}</UserLink>
       </section>
-      <section className="body">{body}</section>
+
+      <section className="body">{post.body}</section>
+
       <section className="likes">
         {currentUser ? (
           <LikeButton
-            onClick={postLikes === likes ? onClickLike : onClickUnlike}
-            liked={postLikes !== likes}
+            onClick={postLikes === post.likes ? onClickLike : onClickUnlike}
+            liked={postLikes !== post.likes}
           >
             {postLikes} Likes
           </LikeButton>
