@@ -17,7 +17,7 @@ export function UsersProvider({ children }) {
         () =>
           makeUser(
             chance.pickone([chance.word(), chance.first() + chance.last()]),
-            chance.word()
+            "password"
           ),
         config.usersAmount
       )
