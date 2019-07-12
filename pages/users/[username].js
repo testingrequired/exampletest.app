@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import Layout from "../../layouts/layout";
-import { useChanceContext } from "../../contexts/chanceContext";
 import styled from "styled-components";
 import PostList from "../../components/design/postList";
 import { usePostsContext } from "../../contexts/postsContext";
@@ -25,7 +24,7 @@ export default function UserPage() {
 
   const user = users.getByUsername(username);
 
-  return (
+  return user ? (
     <Layout>
       <h2>@{user.username}</h2>
 
@@ -46,5 +45,5 @@ export default function UserPage() {
 
       <PostList posts={userPosts} n={userPosts.length} />
     </Layout>
-  );
+  ) : null;
 }
