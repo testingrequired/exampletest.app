@@ -17,11 +17,12 @@ export default function RandomPosts({ username, minLikes, maxLikes, n }) {
   );
 
   function createRandomPost(definedUsername, minLikes = 0, maxLikes = 100) {
+    const id = chance.guid();
     const username = definedUsername || chance.word();
     const body = createSentence();
     const likes = chance.integer({ min: minLikes, max: maxLikes });
 
-    return { username, body, likes };
+    return { id, username, body, likes };
   }
 
   function createSentence(maxHashTags = 5, maxSentences = 3) {

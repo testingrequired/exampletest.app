@@ -30,12 +30,12 @@ const PostStyle = styled.div`
   }
 `;
 
-export default function Post({ username, body, likes }) {
+export default function Post({ id, username, body, likes }) {
   const [postLikes, setPostLikes] = useState(likes);
   const { currentUser } = useAuthContext();
 
   return (
-    <PostStyle>
+    <PostStyle className="post" data-post-id={id}>
       <section className="user">
         <UserLink username={username}>@{username}</UserLink>
       </section>
