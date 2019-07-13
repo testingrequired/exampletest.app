@@ -4,20 +4,26 @@ import Chance from "chance";
 export const ChanceContext = createContext();
 
 export function ChanceProvider({ children }) {
-  const [seed, setSeed] = useState(getSeed());
-  const [chance, setChance] = useState(new Chance(seed));
+  const [seed, setSeed] = useState();
+  const [chance, setChance] = useState();
+
+  useEffect(() => {
+    setRandomSeed();
+  }, []);
 
   useEffect(() => {
     setChance(new Chance(seed));
   }, [seed]);
 
-  const randomSeed = () => setSeed(getSeed());
-
   return (
-    <ChanceContext.Provider value={{ seed, setSeed, randomSeed, chance }}>
+    <ChanceContext.Provider value={{ seed, setSeed, setRandomSeed, chance }}>
       {children}
     </ChanceContext.Provider>
   );
+
+  function setRandomSeed() {
+    setSeed(getSeed());
+  }
 }
 
 export function useChanceContext() {

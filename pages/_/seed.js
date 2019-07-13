@@ -4,12 +4,12 @@ import Layout from "../../layouts/layout";
 import { useChanceContext } from "../../contexts/chanceContext";
 
 export default function AdminUsersPage() {
-  const { seed, randomSeed, setSeed } = useChanceContext();
+  const { seed, setSeed, setRandomSeed } = useChanceContext();
   const [newSeed, setNewSeed] = useState("");
 
   const onClickRandomize = e => {
     e.preventDefault();
-    randomSeed();
+    setRandomSeed();
   };
 
   const onSubmit = e => {

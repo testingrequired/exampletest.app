@@ -11,17 +11,18 @@ export function UsersProvider({ children }) {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    setUsers([
-      makeUser("testUser", "password"),
-      ...chance.n(
-        () =>
-          makeUser(
-            chance.pickone([chance.word(), chance.first() + chance.last()]),
-            "password"
-          ),
-        config.usersAmount
-      )
-    ]);
+    chance &&
+      setUsers([
+        makeUser("testUser", "password"),
+        ...chance.n(
+          () =>
+            makeUser(
+              chance.pickone([chance.word(), chance.first() + chance.last()]),
+              "password"
+            ),
+          config.usersAmount
+        )
+      ]);
   }, [seed, config.usersAmount]);
 
   function register(username, password) {
