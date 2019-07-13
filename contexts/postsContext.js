@@ -41,7 +41,16 @@ export function PostsProvider({ children }) {
         () =>
           makePost(
             chance.pickone(users).username,
-            chance.integer({ min: 0, max: 9000 })
+            chance.weighted(
+              [
+                chance.integer({ min: 0, max: 500 }),
+                chance.integer({ min: 505, max: 2000 }),
+                chance.integer({ min: 2000, max: 5000 }),
+                chance.integer({ min: 5000, max: 10000 }),
+                chance.integer({ min: 10000, max: 25000 })
+              ],
+              [5000, 500, 25, 2, 3]
+            )
           ),
         config.postsAmount
       )
