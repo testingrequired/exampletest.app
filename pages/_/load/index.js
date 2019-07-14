@@ -2,36 +2,29 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useConfigContext } from "../../../contexts/configContext";
 import { useChanceContext } from "../../../contexts/chanceContext";
+import useQueryParams from "../../../hooks/useQueryParams";
+
 export default function AdminPostsPage() {
   const router = useRouter();
   const { seed, setSeed } = useChanceContext();
   const { config, setConfigValue } = useConfigContext();
 
+  const query = useQueryParams(router.asPath);
+
   useEffect(() => {
-    const searchParams = new URLSearchParams(router.asPath.split(/\?/)[1]);
+    const data = JSON.parse(window.atob(query.payload));
 
-    const query = {};
-    for (const [key, value] of searchParams) {
-      query[key] = value;
+    if (data.config) {
+      Object.keys(data.config).forEach(key => {
+        setConfigValue(key, data.config[key]);
+      });
     }
 
-    if (query.payload) {
-      const data = JSON.parse(window.atob(router.query.payload));
-
-      if (data.config) {
-        Object.keys(data.config).forEach(key => {
-          setConfigValue(key, data.config[key]);
-        });
-      }
-
-      if (data.seed) {
-        setSeed(data.seed);
-      }
-
-      router.push("/_");
-    } else {
-      console.log("No payload found!");
+    if (data.seed) {
+      setSeed(data.seed);
     }
+
+    router.push("/_");
   }, [seed, config]);
 
   return null;
