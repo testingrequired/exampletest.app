@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { useConfigContext } from "../../../contexts/configContext";
-import { useChanceContext } from "../../../contexts/chanceContext";
-import useQueryParams from "../../../hooks/useQueryParams";
+import { useConfigContext } from "../../contexts/configContext";
+import { useChanceContext } from "../../contexts/chanceContext";
+import useQueryParams from "../../hooks/useQueryParams";
 
 export default function AdminPostsPage() {
   const router = useRouter();
