@@ -13,15 +13,12 @@ export function UsersProvider({ children }) {
   useEffect(() => {
     if (chance) {
       setUsers([
-        makeUser("testUser", "password"),
-        ...chance.n(
-          () =>
-            makeUser(
-              chance.pickone([chance.word(), chance.first() + chance.last()]),
-              "password"
-            ),
-          config.usersAmount
-        )
+        {
+          username: "testUser",
+          password: "password",
+          profile: { name: "Test User", location: "Test, QA" }
+        },
+        ...chance.n(() => makeUser("password"), config.usersAmount)
       ]);
     }
   }, [chance, config.usersAmount]);
@@ -40,9 +37,18 @@ export function UsersProvider({ children }) {
     </UsersContext.Provider>
   );
 
-  function makeUser(username, password) {
+  function makeUser(password) {
+    const first = chance.first();
+    const last = chance.last();
+
+    const username = chance.pickone([
+      chance.word(),
+      first + last,
+      `${first.toLowerCase()}${chance.integer({ min: 2, max: 99 })}`
+    ]);
+
     const profile = {
-      name: chance.name(),
+      name: `${first} ${last}`,
       location: `${chance.city()}, ${chance.state()}`
     };
 
