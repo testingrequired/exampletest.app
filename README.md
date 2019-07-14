@@ -16,37 +16,47 @@ The develop of the app is on going.
 
 ### Logging In
 
-Login with `testUser` and `password`.
+You can login as `testUser` or any other user on the site with the password of `password`.
 
 ### Refresh
 
-Refreshing the page resets the app to its default state.
+Refreshing the page creates a new session with fresh users and posts.
 
 ### Admin
 
-https://exampletest.app/_
+[https://exampletest.app/_](https://exampletest.app/_)
 
 The admin pages allow the test environment to be configured.
+
+#### Seed
+
+https://exampletest.app/_/seed
+
+The seed is what powers the random data generation. Changing the seed regenerates users and posts.
 
 #### Config
 
 https://exampletest.app/_/config
 
-Various configuration can be editted here.
-
-#### loadingDelay
-
-Maximum loading time between page loads.
-
-#### loadingJitter
-
-Jitter loading times between `0` and `loadingDelay`.
+Various configuration can be edited here.
 
 #### Users
 
 https://exampletest.app/_/users
 
 Registered users are listed here.
+
+#### Posts
+
+https://exampletest.app/_/posts
+
+Registered users are listed here.
+
+#### Share (Experimental)
+
+https://exampletest.app/_/share
+
+Get a link to share that loads with a defined seed and config.
 
 ## Development
 
