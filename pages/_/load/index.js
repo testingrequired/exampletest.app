@@ -1,15 +1,11 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useConfigContext } from "../../../contexts/configContext";
 import { useChanceContext } from "../../../contexts/chanceContext";
-import Layout from "../../../layouts/layout";
-import AdminLayout from "../layout";
-
 export default function AdminPostsPage() {
   const router = useRouter();
   const { seed, setSeed } = useChanceContext();
   const { config, setConfigValue } = useConfigContext();
-  const [encoded, setEncoded] = useState();
 
   useEffect(() => {
     if (router.query.payload) {
@@ -27,17 +23,9 @@ export default function AdminPostsPage() {
 
       router.push("/_");
     } else {
-      const payload = JSON.stringify({ seed, config });
-      setEncoded(window.btoa(payload));
+      console.log("No payload found!");
     }
   }, [seed, config]);
 
-  return (
-    <Layout>
-      <AdminLayout>
-        <h3>Share</h3>{" "}
-        {encoded ? <a href={`/_/load?payload=${encoded}`}>{encoded}</a> : null}
-      </AdminLayout>
-    </Layout>
-  );
+  return null;
 }

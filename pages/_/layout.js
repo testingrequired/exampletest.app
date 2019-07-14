@@ -30,8 +30,8 @@ export default function AdminLayout({ children, title }) {
             </Link>
           </li>
           <li>
-            <Link href="/_/load">
-              <a>Load</a>
+            <Link href="/_/share">
+              <a>Share</a>
             </Link>
           </li>
         </ul>
