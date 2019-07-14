@@ -8,7 +8,14 @@ export default function AdminPostsPage() {
   const { config, setConfigValue } = useConfigContext();
 
   useEffect(() => {
-    if (router.query.payload) {
+    const searchParams = new URLSearchParams(router.asPath.split(/\?/)[1]);
+
+    const query = {};
+    for (const [key, value] of searchParams) {
+      query[key] = value;
+    }
+
+    if (query.payload) {
       const data = JSON.parse(window.atob(router.query.payload));
 
       if (data.config) {
