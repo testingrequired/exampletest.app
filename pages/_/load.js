@@ -4,7 +4,7 @@ import { useConfigContext } from "../../contexts/configContext";
 import { useChanceContext } from "../../contexts/chanceContext";
 import useQueryParams from "../../hooks/useQueryParams";
 
-export default function AdminPostsPage() {
+export default function AdminLoadPage() {
   const router = useRouter();
   const { seed, setSeed } = useChanceContext();
   const { config, setConfigValue } = useConfigContext();
