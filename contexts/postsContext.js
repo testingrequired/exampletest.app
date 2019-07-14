@@ -14,11 +14,15 @@ export function PostsProvider({ children }) {
   const [topPosts, setTopPosts] = useState([]);
 
   useEffect(() => {
-    users.length && setPosts(makePosts());
+    if (users.length) {
+      setPosts(makePosts());
+    }
   }, [users, config.postsAmount]);
 
   useEffect(() => {
-    setTopPosts(posts.sort((a, b) => b.likes - a.likes).slice(0, 10));
+    if (posts.length) {
+      setTopPosts(posts.sort((a, b) => b.likes - a.likes).slice(0, 10));
+    }
   }, [posts]);
 
   function getByUsername(username) {

@@ -12,7 +12,9 @@ export function ChanceProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    setChance(new Chance(seed));
+    if (seed) {
+      setChance(new Chance(seed));
+    }
   }, [seed]);
 
   return (

@@ -5,13 +5,13 @@ import { useConfigContext } from "./configContext";
 export const UsersContext = createContext();
 
 export function UsersProvider({ children }) {
-  const { chance, seed } = useChanceContext();
+  const { chance } = useChanceContext();
   const { config } = useConfigContext();
 
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    chance &&
+    if (chance) {
       setUsers([
         makeUser("testUser", "password"),
         ...chance.n(
@@ -23,7 +23,8 @@ export function UsersProvider({ children }) {
           config.usersAmount
         )
       ]);
-  }, [seed, config.usersAmount]);
+    }
+  }, [chance, config.usersAmount]);
 
   function register(username, password) {
     setUsers([...users, { username, password }]);
