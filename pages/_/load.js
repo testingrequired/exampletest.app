@@ -24,7 +24,7 @@ export default function AdminLoadPage() {
       setSeed(data.seed);
     }
 
-    router.push("/_");
+    router.push("/");
   }, [seed, config]);
 
   return null;
