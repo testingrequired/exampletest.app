@@ -5,12 +5,20 @@ import styled from "styled-components";
 function LoginForm(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loginFailed, setLoginFailed] = useState(false);
 
   const auth = useAuthContext();
 
   function onSubmit(e) {
     e.preventDefault();
-    auth.login(username, password);
+
+    if (auth.login(username, password)) {
+      setLoginFailed(false);
+    } else {
+      setUsername("");
+      setPassword("");
+      setLoginFailed(true);
+    }
   }
 
   return (
@@ -35,6 +43,8 @@ function LoginForm(props) {
           onChange={e => setPassword(e.target.value)}
         />
       </div>
+
+      {loginFailed && <p>Invalid username or password</p>}
 
       <button>Login</button>
     </form>

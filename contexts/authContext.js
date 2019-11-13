@@ -16,6 +16,9 @@ export function AuthProvider({ children }) {
     );
     if (foundUser) {
       setCurrentUser(foundUser);
+      return true;
+    } else {
+      return false;
     }
   }
 
