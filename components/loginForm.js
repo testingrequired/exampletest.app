@@ -22,7 +22,7 @@ function LoginForm(props) {
   }
 
   return (
-    <form onSubmit={onSubmit} className={props.className}>
+    <form onSubmit={onSubmit} className={props.className} id="loginForm">
       <div className="formGroup">
         <label htmlFor="username">Username</label>
         <input

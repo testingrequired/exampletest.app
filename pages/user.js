@@ -18,9 +18,11 @@ export default function UserPage() {
   return (
     <Layout>
       <ProtectedLayout>
-        <h3>Timeline</h3>
+        <div id="userTimeline">
+          <h3>Timeline</h3>
 
-        <PostList posts={userPosts} />
+          <PostList posts={userPosts} />
+        </div>
       </ProtectedLayout>
     </Layout>
   );

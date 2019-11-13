@@ -17,7 +17,7 @@ function RegisterForm(props) {
   }
 
   return (
-    <form onSubmit={onSubmit} className={props.className}>
+    <form onSubmit={onSubmit} className={props.className} id="registerForm">
       <div className="formGroup">
         <label htmlFor="username">Username</label>
         <input
