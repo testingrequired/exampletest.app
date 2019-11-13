@@ -46,7 +46,7 @@ function LoginForm(props) {
 
       {loginFailed && <p>Invalid username or password</p>}
 
-      <button>Login</button>
+      <button id="loginButton">Login</button>
     </form>
   );
 }

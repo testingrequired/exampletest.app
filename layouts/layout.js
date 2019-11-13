@@ -37,8 +37,8 @@ export default function Layout({ children, title }) {
           <NavMenu>
             <ul>
               <li>
-                <Link href="/user">
-                  <a>{currentUser ? "User" : "Login"}</a>
+                <Link href="/user" id="userLink">
+                  <a id="userLink">{currentUser ? "User" : "Login"}</a>
                 </Link>
               </li>
 
@@ -51,7 +51,7 @@ export default function Layout({ children, title }) {
               {!currentUser ? (
                 <li>
                   <Link href="/register">
-                    <a>Register</a>
+                    <a id="registerLink">Register</a>
                   </Link>
                 </li>
               ) : null}

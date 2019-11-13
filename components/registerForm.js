@@ -39,7 +39,7 @@ function RegisterForm(props) {
         />
       </div>
 
-      <button>Register</button>
+      <button id="registerButton">Register</button>
     </form>
   );
 }
