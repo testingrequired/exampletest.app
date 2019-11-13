@@ -4,9 +4,9 @@ export const ConfigContext = createContext();
 
 export function ConfigProvider({ children }) {
   const [config, dispatch] = useReducer(reducer, {
-    loadingDelay: 0,
-    loadingJitter: false,
-    showLoadingScreen: false,
+    loadingDelay: 100,
+    loadingJitter: true,
+    showLoadingScreen: true,
     usersAmount: 10,
     postsAmount: 1000
   });
