@@ -13,5 +13,9 @@ export default function LogoutLink(props) {
     logout();
   };
 
-  return <Style onClick={onClick}>Logout</Style>;
+  return (
+    <Style onClick={onClick} id="logoutLink">
+      Logout
+    </Style>
+  );
 }
