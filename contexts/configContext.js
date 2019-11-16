@@ -15,6 +15,10 @@ export function ConfigProvider({ children }) {
     dispatch({ type: "SET", key, value });
   };
 
+  global.getConfig = () => config;
+  global.getConfigValue = key => config[key];
+  global.setConfigValue = setConfigValue;
+
   return (
     <ConfigContext.Provider value={{ config, setConfigValue }}>
       {children}
