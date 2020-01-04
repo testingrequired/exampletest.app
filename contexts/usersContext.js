@@ -31,8 +31,12 @@ export function UsersProvider({ children }) {
     return users.find(user => user.username === username);
   }
 
+  const providerValue = { users, register, getByUsername };
+
+  global.userContext = providerValue;
+
   return (
-    <UsersContext.Provider value={{ users, register, getByUsername }}>
+    <UsersContext.Provider value={providerValue}>
       {children}
     </UsersContext.Provider>
   );
